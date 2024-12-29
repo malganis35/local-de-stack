@@ -7,7 +7,7 @@
 PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 PROFILE = default
 PYTHON_INTERPRETER = python3
-PYTHON_VERSION = 3.9.0
+PYTHON_VERSION = 3.12.0
 PROJECT_NAME= "ds-infra"
 
 # Source for a good Python Makefile: https://gist.github.com/genyrosk/2a6e893ee72fa2737a6df243f6520a6d
@@ -105,6 +105,12 @@ endif
 delete_pyenv_env:
 	@echo "$(ccso)--> Delete pyenv environment$(ccend)"
 	pyenv virtualenv-delete $(PROJECT_NAME)
+
+## Generate .env.template from .env file
+generate-template:
+	@echo "$(ccso)--> Generate .env.template file from .env file$(ccend)"
+	@sed '/^[^#]/s/=.*/=/g' .env > .env.template
+	@echo ".env.template file generated with success"
 
 #################################################################################
 # PROJECT RULES                                                                 #
