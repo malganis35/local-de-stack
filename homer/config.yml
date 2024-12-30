@@ -1,0 +1,273 @@
+---
+# Homepage configuration
+# See https://fontawesome.com/v5/search for icons options
+
+# Optional: Use external configuration file.
+# Using this will ignore remaining config in this file
+# externalConfig: https://example.com/server-luci/config.yaml
+
+title: "Keyrus DS Stack"
+subtitle: "Home Portal to our Data Science Stack and Services"
+# Optional: Customize the document title
+# documentTitle: "Welcome" # Customize the browser tab text
+logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7RhoraspjwAwU-kfNxvAjcGUuP-9g9h_tDU1pLPdARw&s"
+# Alternatively a fa icon can be provided:
+# icon: "fas fa-skull-crossbones"
+
+header: true # Set to false to hide the header
+# Optional: Different hotkey for search, defaults to "/"
+hotkey:
+#  search: "Shift"
+  search: "/"
+# footer: '<p>Created with <span class="has-text-danger">❤️</span> with <a href="https://bulma.io/">bulma</a>, <a href="https://vuejs.org/">vuejs</a> & <a href="https://fontawesome.com/">font awesome</a> // Fork me on <a href="https://github.com/bastienwirtz/homer"><i class="fab fa-github-alt"></i></a></p>' # set false if you want to hide it.
+footer: 'Copyright, Keyrus 2024' # set false if you want to hide it.
+
+columns: "3" # "auto" or number (must be a factor of 12: 1, 2, 3, 4, 6, 12)
+connectivityCheck: true # whether you want to display a message when the apps are not accessible anymore (VPN disconnected for example).
+                        # You should set it to true when using an authentication proxy, it also reloads the page when a redirection is detected when checking connectivity.
+
+# Optional: Proxy / hosting option
+proxy:
+  useCredentials: false # send cookies & authorization headers when fetching service specific data. Set to `true` if you use an authentication proxy. Can be overrided on service level. 
+
+# Set the default layout and color scheme
+defaults:
+  layout: columns # Either 'columns', or 'list'
+  colorTheme: auto # One of 'auto', 'light', or 'dark'
+
+# Optional theming
+theme: default # 'default' or one of the themes available in 'src/assets/themes'.
+
+# Optional custom stylesheet
+# Will load custom CSS files. Especially useful for custom icon sets.
+# stylesheet:
+#   - "assets/custom.css"
+
+# Here is the exhaustive list of customization parameters
+# However all value are optional and will fallback to default if not set.
+# if you want to change only some of the colors, feel free to remove all unused key.
+colors:
+  light:
+    highlight-primary: "#2CC5FF"
+    highlight-secondary: "#FFE8D4"
+    highlight-hover: "#5a95f5"
+    background: "#f5f5f5"
+    card-background: "#ffffff"
+    text: "#363636"
+    text-header: "#424242"
+    text-title: "#303030"
+    text-subtitle: "#424242"
+    card-shadow: rgba(0, 0, 0, 0.1)
+    link: "#3273dc"
+    link-hover: "#363636"
+    background-image: "assets/your/light/bg.png"
+  dark:
+    highlight-primary: "#3367d6"
+    highlight-secondary: "#4285f4"
+    highlight-hover: "#5a95f5"
+    background: "#131313"
+    card-background: "#2b2b2b"
+    text: "#eaeaea"
+    text-header: "#ffffff"
+    text-title: "#fafafa"
+    text-subtitle: "#f5f5f5"
+    card-shadow: rgba(0, 0, 0, 0.4)
+    link: "#3273dc"
+    link-hover: "#ffdd57"
+    background-image: "assets/your/dark/bg.png"
+
+# Optional message
+message:
+  # url: "https://<my-api-endpoint>" # Can fetch information from an endpoint to override value below.
+  # mapping: # allows to map fields from the remote format to the one expected by Homer
+  #   title: 'id' # use value from field 'id' as title
+  #   content: 'value' # value from field 'value' as content
+  # refreshInterval: 10000 # Optional: time interval to refresh message
+  #
+  # Real example using chucknorris.io for showing Chuck Norris facts as messages:
+  # url: https://api.chucknorris.io/jokes/random
+  # mapping:
+  #   title: 'id'
+  #   content: 'value'
+  # refreshInterval: 10000
+  style: "is-warning"
+  title: "Welcome!"
+  icon: "fa fa-exclamation-triangle"
+  content: "Welcome to the Keyrus Portal of Data Science Services. This page is the Homepage of our DS Open Source Stack"
+
+# Optional navbar
+# links: [] # Allows for navbar (dark mode, layout, and search) without any links
+links:
+  - name: "Knowledge Center"
+    icon: "fas fa-book"
+    url: "https://knowledge.keyrus.ovh/"
+    target: "_blank" # optional html tag target attribute
+  - name: "Gitlab Code Repository"
+    icon: "fab fa-github"
+    url: "http://code.keyrus.ovh/"
+    target: "_blank" # optional html tag target attribute
+  # this will link to a second homer page that will load config from page2.yml and keep default config values as in config.yml file
+  # see url field and assets/page.yml used in this example:
+  - name: "Knowledge & Documentation"
+    icon: "fas fa-file-alt"
+    url: "#page2"
+
+# Services
+# First level array represents a group.
+# Leave only a "items" key if not using group (group name, icon & tagstyle are optional, section separation will not be displayed).
+services:
+  - name: "Services"
+    icon: "fas fa-heartbeat"
+    items:
+      - name: "Minio"
+        logo: "https://cdn-images-1.medium.com/max/1600/0*oUheH3ees7UlBNya"
+        subtitle: "S3 Compatible Storage for AI" # optional, if no subtitle is defined, PiHole statistics will be shown
+        tag: "storage"
+        url: "http://localhost:9000/"
+        type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
+        target: "_blank" # optional html a tag target attribute
+        # class: "green" # optional custom CSS class for card, useful with custom stylesheet
+        # background: red # optional color for card to set color directly without custom stylesheet
+      - name: "MLFlow"
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLj7HerRP-fiFT22xMNPMe8K_-fTp9xGE8RA&s"
+        subtitle: "Managing ML Experiments" # optional, if no subtitle is defined, PiHole statistics will be shown
+        tag: "experiment"
+        url: "http://localhost:5000/"
+        type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
+        target: "_blank" # optional html a tag target attribute
+        # class: "green" # optional custom CSS class for card, useful with custom stylesheet
+        # background: red # optional color for card to set color directly without custom stylesheet
+      - name: "Airflow"
+        logo: "https://data-ai.theodo.com/hubfs/Copy%20of%20dimension%20site%20%20%2816%29.jpg"
+        subtitle: "Orchestrate workflows" # optional, if no subtitle is defined, PiHole statistics will be shown
+        tag: "orchestrator"
+        url: "http://localhost:8080/"
+        type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
+        target: "_blank" # optional html a tag target attribute
+        # class: "green" # optional custom CSS class for card, useful with custom stylesheet
+        # background: red # optional color for card to set color directly without custom stylesheet
+      - name: "JupyterLab"
+        logo: "https://data-ai.theodo.com/hubfs/Copy%20of%20dimension%20site%20%20%2816%29.jpg"
+        subtitle: "Orchestrate workflows" # optional, if no subtitle is defined, PiHole statistics will be shown
+        tag: "orchestrator"
+        url: "http://localhost:8080/"
+        type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
+        target: "_blank" # optional html a tag target attribute
+        # class: "green" # optional custom CSS class for card, useful with custom stylesheet
+        # background: red # optional color for card to set color directly without custom stylesheet
+      - name: "DBeaver"
+        logo: "https://data-ai.theodo.com/hubfs/Copy%20of%20dimension%20site%20%20%2816%29.jpg"
+        subtitle: "Orchestrate workflows" # optional, if no subtitle is defined, PiHole statistics will be shown
+        tag: "orchestrator"
+        url: "http://localhost:8080/"
+        type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
+        target: "_blank" # optional html a tag target attribute
+        # class: "green" # optional custom CSS class for card, useful with custom stylesheet
+        # background: red # optional color for card to set color directly without custom stylesheet
+      - name: "Dataiku"
+        logo: "https://data-ai.theodo.com/hubfs/Copy%20of%20dimension%20site%20%20%2816%29.jpg"
+        subtitle: "Orchestrate workflows" # optional, if no subtitle is defined, PiHole statistics will be shown
+        tag: "orchestrator"
+        url: "http://localhost:8080/"
+        type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
+        target: "_blank" # optional html a tag target attribute
+        # class: "green" # optional custom CSS class for card, useful with custom stylesheet
+        # background: red # optional color for card to set color directly without custom stylesheet
+  - name: "Database"
+    icon: "fas fa-book"
+    items:
+      - name: "PostgreSQL Database"
+        logo: "https://s29814.pcdn.co/wp-content/uploads/2022/12/shutterstock_1847661151.jpg.optimal.jpg"
+        # subtitle: "Network-wide Ad Blocking" # optional, if no subtitle is defined, PiHole statistics will be shown
+        tag: "other"
+        url: "https://knowledge.keyrus.ovh/"
+        type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
+        target: "_blank" # optional html a tag target attribute
+        # class: "green" # optional custom CSS class for card, useful with custom stylesheet
+        # background: red # optional color for card to set color directly without custom stylesheet
+      - name: "MySQL"
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFPzganU3NRNcGyEMCNecZKGyw0ojoO3DvA2Db2DYLbA&s"
+        # subtitle: "Network-wide Ad Blocking" # optional, if no subtitle is defined, PiHole statistics will be shown
+        tag: "other"
+        url: "https://keyrusgroup-my.sharepoint.com/personal/cao-tri_do_keyrus_com/_layouts/15/OneDrive.aspx?remoteItem=%7B%22mp%22%3A%7B%22listFullUrl%22%3A%22https%3A%2F%2Fkeyrusgroup%2Dmy%2Esharepoint%2Ecom%2Fpersonal%2Fcao%2Dtri%5Fdo%5Fkeyrus%5Fcom%2FDocuments%22%2C%22rootFolder%22%3A%22%2Fpersonal%2Fcao%2Dtri%5Fdo%5Fkeyrus%5Fcom%2FDocuments%2FData%20Science%20et%20IA%22%2C%22webAbsoluteUrl%22%3A%22https%3A%2F%2Fkeyrusgroup%2Dmy%2Esharepoint%2Ecom%2Fpersonal%2Fcao%2Dtri%5Fdo%5Fkeyrus%5Fcom%22%7D%2C%22rsf%22%3A%7B%22listId%22%3A%22c7d83308%2D18fc%2D415c%2D9fff%2D4e55f207092a%22%2C%22siteUrl%22%3A%22https%3A%2F%2Fkeyrusgroup%2Esharepoint%2Ecom%2Fsites%2FKEYFR%2DDataCommunities%2DDataScienceetIA%22%2C%22uniqueId%22%3A%22c0a0ab45%2D3478%2D4b8f%2Dac37%2D8a6cd037c6a0%22%7D%7D&View=0"
+        type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
+        target: "_blank" # optional html a tag target attribute
+        # class: "green" # optional custom CSS class for card, useful with custom stylesheet
+        # background: red # optional color for card to set color directly without custom stylesheet
+      - name: "MongoDB"
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFPzganU3NRNcGyEMCNecZKGyw0ojoO3DvA2Db2DYLbA&s"
+        # subtitle: "Network-wide Ad Blocking" # optional, if no subtitle is defined, PiHole statistics will be shown
+        tag: "other"
+        url: "https://keyrusgroup-my.sharepoint.com/personal/cao-tri_do_keyrus_com/_layouts/15/OneDrive.aspx?remoteItem=%7B%22mp%22%3A%7B%22listFullUrl%22%3A%22https%3A%2F%2Fkeyrusgroup%2Dmy%2Esharepoint%2Ecom%2Fpersonal%2Fcao%2Dtri%5Fdo%5Fkeyrus%5Fcom%2FDocuments%22%2C%22rootFolder%22%3A%22%2Fpersonal%2Fcao%2Dtri%5Fdo%5Fkeyrus%5Fcom%2FDocuments%2FData%20Science%20et%20IA%22%2C%22webAbsoluteUrl%22%3A%22https%3A%2F%2Fkeyrusgroup%2Dmy%2Esharepoint%2Ecom%2Fpersonal%2Fcao%2Dtri%5Fdo%5Fkeyrus%5Fcom%22%7D%2C%22rsf%22%3A%7B%22listId%22%3A%22c7d83308%2D18fc%2D415c%2D9fff%2D4e55f207092a%22%2C%22siteUrl%22%3A%22https%3A%2F%2Fkeyrusgroup%2Esharepoint%2Ecom%2Fsites%2FKEYFR%2DDataCommunities%2DDataScienceetIA%22%2C%22uniqueId%22%3A%22c0a0ab45%2D3478%2D4b8f%2Dac37%2D8a6cd037c6a0%22%7D%7D&View=0"
+        type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
+        target: "_blank" # optional html a tag target attribute
+        # class: "green" # optional custom CSS class for card, useful with custom stylesheet
+        # background: red # optional color for card to set color directly without custom stylesheet
+  - name: "Assets"
+    icon: "fas fa-code-branch"
+    # A path to an image can also be provided. Note that icon take precedence if both icon and logo are set.
+    # logo: "path/to/logo"
+    items:
+      - name: "Synthetic Data"
+        logo: "https://imageio.forbes.com/blogs-images/bernardmarr/files/2018/11/AdobeStock_205110625-Converted-1200x598.png?format=png&height=600&width=1200&fit=bounds"
+        # Alternatively a fa icon can be provided:
+        # icon: "fab fa-jenkins"
+        subtitle: "Generate artificial data with AI"
+        tag: "app"
+        keywords: "self hosted reddit" # optional keyword used for searching purpose
+        url: "www.google.fr"
+        target: "_blank" # optional html tag target attribute
+      - name: "Fuzzy Matching"
+        logo: "https://prateekvjoshi.files.wordpress.com/2014/01/1-main.jpg"
+        subtitle: "Compute similarities between strings"
+        tag: "app"
+        # Optional tagstyle
+        tagstyle: "is-success"
+        url: "www.google.fr"
+        target: "_blank" # optional html tag target attribute
+      - name: "Chat with your webpages"
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpfx4lYWgyq8kmzR7HU8JI1kW-H8I62UAU9dQg8sXH-Q&s"
+        subtitle: "Specialize a Gen AI LLM on a webpage"
+        tag: "app"
+        # Optional tagstyle
+        tagstyle: "is-success"
+        url: "www.google.fr"
+        target: "_blank" # optional html tag target attribute
+  - name: "Project Documentation"
+    icon: "fas fa-book"
+    # A path to an image can also be provided. Note that icon take precedence if both icon and logo are set.
+    # logo: "path/to/logo"
+    items:
+      - name: "Synthetic Data"
+        logo: "https://imageio.forbes.com/blogs-images/bernardmarr/files/2018/11/AdobeStock_205110625-Converted-1200x598.png?format=png&height=600&width=1200&fit=bounds"
+        # Alternatively a fa icon can be provided:
+        # icon: "fab fa-jenkins"
+        subtitle: "Generate artificial data with AI"
+        tag: "app"
+        keywords: "self hosted reddit" # optional keyword used for searching purpose
+        url: "http://fnmf.syntheticdata.keyrus.ovh/"
+        target: "_blank" # optional html tag target attribute
+      - name: "RUBIX PIM Classification"
+        logo: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Logo_Rubix.jpg"
+        subtitle: "Another application"
+        tag: "app"
+        # Optional tagstyle
+        tagstyle: "is-success"
+        url: "www.google.fr"
+        target: "_blank" # optional html tag target attribute
+      - name: "Somfy Documentation"
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLuQQFs2JXlPfcWkqYi4Y-AkIm80uUlVNTFaB4hRmSPQ&s"
+        subtitle: "Another application"
+        tag: "app"
+        # Optional tagstyle
+        tagstyle: "is-success"
+        url: "https://documentation.somfy.keyrus.ovh/"
+        target: "_blank" # optional html tag target attribute
+      - name: "SSIS Training"
+        logo: "https://www.selectdistinct.co.uk/wp-content/uploads/2024/01/ssis-logo-jpg.webp"
+        subtitle: "Another application"
+        tag: "app"
+        # Optional tagstyle
+        tagstyle: "is-success"
+        url: "https://formation.ssis.keyrus.ovh/"
+        target: "_blank" # optional html tag target attribute
