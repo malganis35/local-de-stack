@@ -1,16 +1,36 @@
-version: '3'
+version: '3.7'
+
 services:
-  minio:
-    image: quay.io/minio/minio:RELEASE.2022-02-18T01-50-10Z
-    container_name: minio
-    ports:
-      - "9000:9000"
-      - "9091:9091"
-    environment:
-      MINIO_ROOT_USER: ${MINIO_USER}
-      MINIO_ROOT_PASSWORD: ${MINIO_PW}
-      MINIO_ADDRESS: ':9000'
-      MINIO_CONSOLE_ADDRESS: ':9091'      
-    volumes:
-      - ${MINIO_DIR}:/data
-    command: minio server /data
+    minio:
+        restart: always
+        image: minio/minio@sha256:d051d800a3025588f37f69f132bb5ef718547a9a4ee95ddee44e04ad952a0a96
+        container_name: minio
+        ports:
+            - "9000:9000"
+            - "9001:9001"
+        command: server /data --console-address ':9001' --address ':9000'
+        environment:
+            - MINIO_ROOT_USER=${MINIO_USER}
+            - MINIO_ROOT_PASSWORD=${MINIO_PW}
+        volumes:
+            - minio_data:/data
+
+    mc:
+        image: minio/mc@sha256:4ccb0c7437bda19ed232603eab10cc246c8f9ac7ccd282943ebb7657a2df4820
+        depends_on:
+            - minio
+        container_name: mc
+        env_file:
+            - .env
+        entrypoint: >
+            /bin/sh -c "
+            /tmp/wait-for-it.sh minio:9000 &&
+            /usr/bin/mc alias set minio http://minio:9000 ${MINIO_USER} ${MINIO_PW} &&
+            /usr/bin/mc mb minio/mlflow;
+            exit 0;
+            "
+        volumes:
+            - ./wait-for-it.sh:/tmp/wait-for-it.sh
+
+volumes:
+    minio_data:
