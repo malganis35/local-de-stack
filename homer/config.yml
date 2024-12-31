@@ -119,15 +119,6 @@ services:
   - name: "Services"
     icon: "fas fa-heartbeat"
     items:
-      - name: "Minio"
-        logo: "https://cdn-images-1.medium.com/max/1600/0*oUheH3ees7UlBNya"
-        subtitle: "S3 Compatible Storage for AI" # optional, if no subtitle is defined, PiHole statistics will be shown
-        tag: "storage"
-        url: "http://localhost:9000/"
-        type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
-        target: "_blank" # optional html a tag target attribute
-        # class: "green" # optional custom CSS class for card, useful with custom stylesheet
-        # background: red # optional color for card to set color directly without custom stylesheet
       - name: "MLFlow"
         logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLj7HerRP-fiFT22xMNPMe8K_-fTp9xGE8RA&s"
         subtitle: "Managing ML Experiments" # optional, if no subtitle is defined, PiHole statistics will be shown
@@ -147,56 +138,65 @@ services:
         # class: "green" # optional custom CSS class for card, useful with custom stylesheet
         # background: red # optional color for card to set color directly without custom stylesheet
       - name: "JupyterLab"
-        logo: "https://data-ai.theodo.com/hubfs/Copy%20of%20dimension%20site%20%20%2816%29.jpg"
-        subtitle: "Orchestrate workflows" # optional, if no subtitle is defined, PiHole statistics will be shown
-        tag: "orchestrator"
-        url: "http://localhost:8080/"
-        type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
-        target: "_blank" # optional html a tag target attribute
-        # class: "green" # optional custom CSS class for card, useful with custom stylesheet
-        # background: red # optional color for card to set color directly without custom stylesheet
-      - name: "DBeaver"
-        logo: "https://data-ai.theodo.com/hubfs/Copy%20of%20dimension%20site%20%20%2816%29.jpg"
-        subtitle: "Orchestrate workflows" # optional, if no subtitle is defined, PiHole statistics will be shown
-        tag: "orchestrator"
+        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/1767px-Jupyter_logo.svg.png"
+        subtitle: "Explore data with Jupyter Notebook" # optional, if no subtitle is defined, PiHole statistics will be shown
+        tag: "DS Plateform"
         url: "http://localhost:8080/"
         type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
         target: "_blank" # optional html a tag target attribute
         # class: "green" # optional custom CSS class for card, useful with custom stylesheet
         # background: red # optional color for card to set color directly without custom stylesheet
       - name: "Dataiku"
-        logo: "https://data-ai.theodo.com/hubfs/Copy%20of%20dimension%20site%20%20%2816%29.jpg"
-        subtitle: "Orchestrate workflows" # optional, if no subtitle is defined, PiHole statistics will be shown
-        tag: "orchestrator"
+        logo: "https://upload.wikimedia.org/wikipedia/fr/9/91/Dataiku_logo.png"
+        subtitle: "End to End Machine Learning Plateform" # optional, if no subtitle is defined, PiHole statistics will be shown
+        tag: "DS Plateform"
         url: "http://localhost:8080/"
         type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
         target: "_blank" # optional html a tag target attribute
         # class: "green" # optional custom CSS class for card, useful with custom stylesheet
-        # background: red # optional color for card to set color directly without custom stylesheet
-  - name: "Database"
-    icon: "fas fa-book"
-    items:
-      - name: "PostgreSQL Database"
-        logo: "https://s29814.pcdn.co/wp-content/uploads/2022/12/shutterstock_1847661151.jpg.optimal.jpg"
-        # subtitle: "Network-wide Ad Blocking" # optional, if no subtitle is defined, PiHole statistics will be shown
-        tag: "other"
-        url: "https://knowledge.keyrus.ovh/"
+        # background: grey # optional color for card to set color directly without custom stylesheet
+      - name: "CloudBeaver"
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-HWRpqUuQ-C6DJky3y1REXwn9-lu9Kxx49A&s"
+        subtitle: "Data Exploration tool for SQL Database" # optional, if no subtitle is defined, PiHole statistics will be shown
+        tag: "orchestrator"
+        url: "http://localhost:8978/"
         type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
         target: "_blank" # optional html a tag target attribute
         # class: "green" # optional custom CSS class for card, useful with custom stylesheet
         # background: red # optional color for card to set color directly without custom stylesheet
-      - name: "MySQL"
-        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFPzganU3NRNcGyEMCNecZKGyw0ojoO3DvA2Db2DYLbA&s"
-        # subtitle: "Network-wide Ad Blocking" # optional, if no subtitle is defined, PiHole statistics will be shown
+  - name: "Database & Backend"
+    icon: "fas fa-book"
+    items:
+      - name: "Minio"
+        logo: "https://cdn-images-1.medium.com/max/1600/0*oUheH3ees7UlBNya"
+        subtitle: "S3 Compatible Storage for AI" # optional, if no subtitle is defined, PiHole statistics will be shown
+        tag: "storage"
+        url: "http://localhost:9000/"
+        type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
+        target: "_blank" # optional html a tag target attribute
+        # class: "green" # optional custom CSS class for card, useful with custom stylesheet
+        # background: red # optional color for card to set color directly without custom stylesheet
+      - name: "MongoDB"
+        logo: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxATEBIRDxAQFRAQFxUQFRUQDw8QFREVFRcWFxURFhUYHSggGBomHRYWITEhJikrLi4uFx8/ODMtNygtLisBCgoKDg0OGxAQGjYlHyYtNzctLy01MS0tLy0tLS0tLSstLS0tLS0tLSstLS0uLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABgcCAwUEAf/EAEcQAAIBAwAGBwQECggHAAAAAAABAgMEEQUGEiExUQcTIjJBcYFhkaGxFCNCwTRDUmJyc4KTstIWJCUzNVSz0RVTY5Ki4fD/xAAZAQEAAwEBAAAAAAAAAAAAAAAAAQIFAwT/xAAmEQEBAAICAQMEAgMAAAAAAAAAAQIRAxIhBDFRM0FCYSKBEyMy/9oADAMBAAIRAxEAPwC8QAAAAAAAAAAAAAAAD5OSSbfBb2fSM63adjThKhTeas1iWPxcXx9fYUzzmGO6pnnMJupJCaaTTymsp80zIieoWl+spyt5v6yj3c/apvh7uHuJYOPOZ4zKGGczxlgAC64AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHJ1j0xG2pOW51JboR5v8p+xEZZTGbqMspjN14dadYupTpUnms1vfhTT+8gM5Nttttve2+LfMwqVpTlKU23KTy2/FhGRzct5LtlcvLeS7aLa9nRrKrSeJxeV96fsLV1c09Tuqe1HdUjhTh4xfNc4vmVFX7z8z0aK0jUoVY1ab3x4rwkvGL9hPBzXjv6OHmvHf0uwHh0PpOFxRjVp8HuafGMlxiz3GtLLNxqyyzcAASkAAAAAAAAAAAAAAAAAAAAAAAAAAGM5JJtvCW9t+CXFlUaf0o7ivKp9hdmC5RXB+vH1Jhr9pR06KoxfarZT9kFx9/D3ldxZnes5d3pGf6vk3ekZpm1Go2RZ43jeGv3mYGy47zNZCHf1O027aulJ/U1cRn+a/Cfp8i10yiS0dQ9Lddb9XN5qUOzv4yh9l/d6Hv8AScv4X+nu9Jy/hf6SYAHve8AAAAAAAAAAAAAAAAAAAAAAAAAPFpq76q3q1FxhBtfpcI/Foi3U2i3U2rTW7SPXXdRp5hT+qj+zxfvycgwM0YmWVyytrEyy7ZW1sTM4M1wMiB5a/eZgbLjvM1NhD6dvU/SXUXcG32Kn1cvKXB+/BwtpDb8ycbcbLFscrjZYvkHN1dv+vtaNV96UUpfpR3S+KZ0jbl3NxtS7m4AAlIAAAAAAAAAAAAAAAAAAAAAEZ6Qa+zabP/MlGPot7+RJiE9JlTsUI85Sl7lj7zj6i6464+ouuKoEjNGEWZIx2OzizYajYmEvJdd5+hpNtz3n6GolL4AALJ6MbrNCrSb7k9peUlv+KJoVt0Y1cV6sfCUE/c//AGWSa3prvjjV9Nd8cAAd3cAAAAAAAAAAAAAAAAAAAAACBdJveoeU/miekH6TYdmhL2yj8Ezz+qn+qvP6v6VQJGeTAyRkMhmbIcDWjKLJWjzXPeZqNt13maSUgAAlnRs/64/1cvnEtErHozhm6m+VN/Fos41PSfTafpPpgAPS9IAAAAAAAAAAAAAAAAAAAAAEY6QrbatNpcacoy9HufzRJzzaTtFVo1KT/GRcfJtbn78FOTHthYpy49sLipM+xZ9qQcW4yWJRbi1ya3NGKMNhtkTJGBmSmPNcvtGszuJdo1bRZZkMGO0xkCf9F1s/r6jX5MF8Wyfke1Ds+rsaba31c1X5S7v/AIpe8kJr8GPXjka/Bj145AAHV1AAAAAAAAAAAAAAAAAAAAAAAAVjr9ovqrjrYrsV+15TXeXrx95GC4tY9FK5t5U9yn3oPlJcPR8PUp+tSlGTjJNSi3Fp+DXFGT6ri6Z7+1ZPquLpnv7URkjCJlE87zR5rjvM1mdfvMwLLh7tCaOdxcU6K+2+0+UVvk/ceEsno20NsU3czXaq9mGfCC4y9X8EdeHDvnp24ePvlpNKcFFKMVhRSSS8EtyRkAa7WAAAAAAAAAAAAAAAAAAAAAAAAAAAIVr5q9tJ3VFdqK+sil3kvtr2rxJqGinJxzPHrVOTjmePWqKRnyJdrlqt1bde3j9W984L8Xzkl+T8iJ0Y5aXtXzMfLjywy61j5cdwz65PLdwxOS5M1Hu0zS2ar5SSl9z+Rv1d0HUu6uxDdCOHOeN0F975ImY25dYvcL26x6NUdX5XVbtJqjTw6j5/mJ838i4KcFFKMUlGKSSW5JLgjzaL0dTt6UaVKOIx98n4yb8Wz1mpw8X+PH9tLh4v8eP7AAdnYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfGiFaxarQhL6RR3QT7VPG5N7lKPJZ8CbHn0jT2qVSPOL+Rz5OOZzyrlhjl7xBrfQEbtxjJyjsdrMeOPFepN9G6PpUKap0YKMFy4t+Mm/F+05erMO+/ZFfP/Y7xHHhJ5+6es3vXkAB1SAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGNRbn5MyAHL0HT2VL24+GTqHxJH0iTUAAEgAcq81jtKU3TqVlGceK2KjxnfxSwRbJ7pktdUHE/pZY/5hfu6v8ojrZYt4+kR9YVYr3uJHfH5T1y+HbBqt7iFSO1TnGUX4xkpL3oXVxCnCU6ktmEVlt53L0LKtoOJ/S2x/wAwv3dX+Uf0tsf8wv3dX+Ur3x+VuuXw7YPNY6Qo1ltUakJpcdl5a81xR6SyoAAAMaqbi1F4k00m1nD8HjxKe1r0npe3vaFCtdKoqkqcoxorqI1FtpKElvccvdxfEi3S2OO1xggmm9WdLXMJTekY0qnGNChCcaa5RdXO03+dj0I/qTrNpWs6mj4Om69Pal11w23RhBqE04pfWS2msepHY6+PdbYKj1s0Hpazh9NWkqlZQac8KVPYy8JqGXGUc8eBPtSNOO8sqdeSSqb4TS4bcHhtex7n6ky/YuPjbvAhmvGt1ShVpWVnGMry4xhz7tKMnsxk14ttPdyT9mcbrUevUhtS0pe/ScZ21KMae1yVNY7PrkbOvymoKr1S1uvLe+/4dpKW29rqo1HxjJ9zf9qEljHjvRKNfnpGFGVeyuKUKdKEp1ISp9tqO9yhPeuHhheY34Ljq6SwFRai3WlryhXjSuVBOa27is5VJxzFfV0oLcuedx4NYLbSmia1Ou7ydaE3xcp7Mmt7hOnJvGVyZHb7p6edbXYDx6Kv41relXW6NSEanllZaIRorTFxpW7uKdOtOhY2uE+pwqtZybUczedmPZk93s5k7VkWGCpNeKF7ouVOva3txKjVbg41p9ZszS2kt/FNJ/8AaS/UyOkp4ub65ozo1KadKFGLiu1iW3PMVvS3ePFkS+dJ6+NpYCvqen7nSV7VtbKq6Fpb56ytBJ1am/GIZ3RTecexZ9hq1l1TvLenK5sNIXcp0ltyp1qm3tJcXHdjPsaJ2dflYxxda7OnK1rScI7Si5KWysprxycfo41vd9SlCskrijjacdyqRfCaXg+aO/rL+CV/0GRfOJJZkjHRxQhKNZyjFtOPeinjc+ZKb7QdtVTU6MPOMVFr2pojXRn3K/nH5MmxXjk6RbO/yVlf29fRtwpUpt0571nhNLjCS5rmWHo+7hXowqR3xqLOHvxzTOD0h0U7RS8YTi165i18V7h0eTbtGnwjOSXqk/myMZ1y6/ZOX8sdo7rzbwjewUIxSlCDaikk3tSWceSJ5LRdvOCjKjTaaX2Irw5og3SA8XtPCy+rhu59qW4789OXyju0fLcuPWOXwSIxsmVTd2TSMRpO00mqdFvCnGOM8YTSey+eFL4Fnlc6vaRt/pcqt7tq4lLc5RSpwfBZ8U/DfuLGTJ4vaq8nuAA6uYVN0l/4vo/zpf60S15ywm8N4WcLi/YVDrRZ6Tu72jdR0bVhGhsOMJzpty2ZbW9p4XLdkrn7L4e64CptQd2sF9j8i4/1qJP3pi4Vr1/0Cv121s/R1Olt8cbW1nGz48/YV1q1ZaTttI1b2ejqso11Ui4RnBOCqTjPKbe/Gyl4cSMvsYzxU+6QV/Zl5+qkcXoZ/wAOl+uqfKB7tf6t1O1lbW1nVqu5puMpKUFGlnGU9+XL4HJ6NKd9aw+i3FjUjCU5VOu24YjtJbpR/Z4rmPyJ/wAo9p6tsazQnV7qqUcZ4YlTUY/FlyEE6SNSZXmxcWzSuaS2MN7KqRTbis+Ek28P2+Rr0JrXpKEFRu9F3NStDs7dLYSqY4OW08J82m/JcBPFL5k0jPSlQ/ti16v+8nGhw47SqyUX/wDciy9c3/Z15+pq/wALOBoLVivWvnpPSKjGosKjQi9tUUliLlLxaTfq2+SPd0gXVz9Hnb21nVru4hODnCUVGlnC3p7297x5D5pfOo4PQf8Agtx+tX8CN3TYv6lSf/WX8Ejn9GVO/s3KhW0fX6uvUi3UzBKlu2W5JvevHcenpRje3SVrQsK0oU5qp1ycXGfZaxFftePIj8VvzSnUVZ0XarnSS+ZXWrF5LQ1/XpXsJq3r9lVFFyXZbdOouaxKSaW9ZJp0dXV3GjC0ubGrRVCnhVZSi4zw0lHZ4qW9vxW4h2vd7pKjpOnOcY1oQcqltS6vrIOOMPNOPa2lniTfaVE97HX10uXpb6PaaPjOdNT66rXcJQp00ouKScl2n2pPC5Lnunc7TqrN0qf4ui4R/ZhhFbx6Ubukvr9GKMeadagvTag0TfU/W2hpCnN04yhUp4U6c2m1nhJNcYvD9xMsRZZEH6D6yVS7py/vGqct/HEXJS+LRbMlnc+DKq0tqlfWN873RkFUpybk6XilLv02vGPJrevTfIHrPpGvSdO30XXp15LZ2684RpU2921njLHkiJdeDKbu4ifRJRa0ldbH93CNSO7hjrMR+RZ2s/4HX/QZztRtVI2FFpyU69V7VWaWFnwjH81fE+623ddwnb0bapPbik6ixsrPFJeL/wBxrWKd7yc3oz7lbzj8mTYrfVyV9aSli0nOE8bUWnF7vFMkr01ezWKVhKMn41qiUV6Jb/eV48tY6M5u7eLpGvUqNOiu9OSm1yjHPzbXuOtqjo90bWEZLEpZm/ZtcF7sHi0ZqzJ1vpN7NVK3FRXcjy88eC4eZIbys4QlOMJTcVlRhjMvYiZPPaot8dYr/X38Op/oQ/ikWHS7q8kVtrFQvLmv1qtKsMJRS7z3b8t+pJLPT95sKM9H1XNJLKmop+3etxXG6yq2U3I5XSRaQUqVVJKc9qMvzksYb8s/ElGq85OzoOedrYXHl9n4YOJLQNxeVo1b3Zp04bo0oPLxxw34Z8WS6EEkklhJYSXglwRbGfyuSuV8SMgAdFAAAAAAAAAAAAAAAAHl0rWnChVnSjtVIQnKEfypKLaXvIB0SaTp13cVK9RTv5zzJzxtOlhbKgvCKe1uRZJCtL9GtlVqutSlVt6km5PqZYjl8ZKL7r8mit2tLNaS2/dJU5uvsdUk9rrMbOz45yV/0S6I2Z3d3GLjb1pOnQT3bUFJvbX5vBL1OxY9H1vFp3Ne5ulHeoXFaTp+sFx9dxLoQSSUUkluSSwkuSQ1s3qajIAFlQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH//2Q=="
+        subtitle: "Database to handle semi-structured data, like JSON" # optional, if no subtitle is defined, PiHole statistics will be shown
         tag: "other"
         url: "https://keyrusgroup-my.sharepoint.com/personal/cao-tri_do_keyrus_com/_layouts/15/OneDrive.aspx?remoteItem=%7B%22mp%22%3A%7B%22listFullUrl%22%3A%22https%3A%2F%2Fkeyrusgroup%2Dmy%2Esharepoint%2Ecom%2Fpersonal%2Fcao%2Dtri%5Fdo%5Fkeyrus%5Fcom%2FDocuments%22%2C%22rootFolder%22%3A%22%2Fpersonal%2Fcao%2Dtri%5Fdo%5Fkeyrus%5Fcom%2FDocuments%2FData%20Science%20et%20IA%22%2C%22webAbsoluteUrl%22%3A%22https%3A%2F%2Fkeyrusgroup%2Dmy%2Esharepoint%2Ecom%2Fpersonal%2Fcao%2Dtri%5Fdo%5Fkeyrus%5Fcom%22%7D%2C%22rsf%22%3A%7B%22listId%22%3A%22c7d83308%2D18fc%2D415c%2D9fff%2D4e55f207092a%22%2C%22siteUrl%22%3A%22https%3A%2F%2Fkeyrusgroup%2Esharepoint%2Ecom%2Fsites%2FKEYFR%2DDataCommunities%2DDataScienceetIA%22%2C%22uniqueId%22%3A%22c0a0ab45%2D3478%2D4b8f%2Dac37%2D8a6cd037c6a0%22%7D%7D&View=0"
         type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
         target: "_blank" # optional html a tag target attribute
         # class: "green" # optional custom CSS class for card, useful with custom stylesheet
         # background: red # optional color for card to set color directly without custom stylesheet
-      - name: "MongoDB"
-        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFPzganU3NRNcGyEMCNecZKGyw0ojoO3DvA2Db2DYLbA&s"
-        # subtitle: "Network-wide Ad Blocking" # optional, if no subtitle is defined, PiHole statistics will be shown
+      - name: "PostgreSQL Database"
+        logo: "https://cdn.icon-icons.com/icons2/2415/PNG/512/postgresql_original_wordmark_logo_icon_146392.png"
+        subtitle: "SQL Database with pgvector for vector embeddings" # optional, if no subtitle is defined, PiHole statistics will be shown
+        tag: "other"
+        url: "http://localhost:5432/"
+        type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
+        target: "_blank" # optional html a tag target attribute
+        # class: "green" # optional custom CSS class for card, useful with custom stylesheet
+        # background: red # optional color for card to set color directly without custom stylesheet
+      - name: "MySQL"
+        logo: "https://w7.pngwing.com/pngs/747/798/png-transparent-mysql-logo-mysql-database-web-development-computer-software-dolphin-marine-mammal-animals-text-thumbnail.png"
+        subtitle: "General SQL Database used by MLFlow to store metadata experiments" # optional, if no subtitle is defined, PiHole statistics will be shown
         tag: "other"
         url: "https://keyrusgroup-my.sharepoint.com/personal/cao-tri_do_keyrus_com/_layouts/15/OneDrive.aspx?remoteItem=%7B%22mp%22%3A%7B%22listFullUrl%22%3A%22https%3A%2F%2Fkeyrusgroup%2Dmy%2Esharepoint%2Ecom%2Fpersonal%2Fcao%2Dtri%5Fdo%5Fkeyrus%5Fcom%2FDocuments%22%2C%22rootFolder%22%3A%22%2Fpersonal%2Fcao%2Dtri%5Fdo%5Fkeyrus%5Fcom%2FDocuments%2FData%20Science%20et%20IA%22%2C%22webAbsoluteUrl%22%3A%22https%3A%2F%2Fkeyrusgroup%2Dmy%2Esharepoint%2Ecom%2Fpersonal%2Fcao%2Dtri%5Fdo%5Fkeyrus%5Fcom%22%7D%2C%22rsf%22%3A%7B%22listId%22%3A%22c7d83308%2D18fc%2D415c%2D9fff%2D4e55f207092a%22%2C%22siteUrl%22%3A%22https%3A%2F%2Fkeyrusgroup%2Esharepoint%2Ecom%2Fsites%2FKEYFR%2DDataCommunities%2DDataScienceetIA%22%2C%22uniqueId%22%3A%22c0a0ab45%2D3478%2D4b8f%2Dac37%2D8a6cd037c6a0%22%7D%7D&View=0"
         type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
@@ -233,12 +233,12 @@ services:
         tagstyle: "is-success"
         url: "www.google.fr"
         target: "_blank" # optional html tag target attribute
-  - name: "Project Documentation"
+  - name: "Future Assets"
     icon: "fas fa-book"
     # A path to an image can also be provided. Note that icon take precedence if both icon and logo are set.
     # logo: "path/to/logo"
     items:
-      - name: "Synthetic Data"
+      - name: "Ollama"
         logo: "https://imageio.forbes.com/blogs-images/bernardmarr/files/2018/11/AdobeStock_205110625-Converted-1200x598.png?format=png&height=600&width=1200&fit=bounds"
         # Alternatively a fa icon can be provided:
         # icon: "fab fa-jenkins"
@@ -247,27 +247,11 @@ services:
         keywords: "self hosted reddit" # optional keyword used for searching purpose
         url: "http://fnmf.syntheticdata.keyrus.ovh/"
         target: "_blank" # optional html tag target attribute
-      - name: "RUBIX PIM Classification"
+      - name: "AnythingLLM"
         logo: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Logo_Rubix.jpg"
         subtitle: "Another application"
         tag: "app"
         # Optional tagstyle
         tagstyle: "is-success"
         url: "www.google.fr"
-        target: "_blank" # optional html tag target attribute
-      - name: "Somfy Documentation"
-        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLuQQFs2JXlPfcWkqYi4Y-AkIm80uUlVNTFaB4hRmSPQ&s"
-        subtitle: "Another application"
-        tag: "app"
-        # Optional tagstyle
-        tagstyle: "is-success"
-        url: "https://documentation.somfy.keyrus.ovh/"
-        target: "_blank" # optional html tag target attribute
-      - name: "SSIS Training"
-        logo: "https://www.selectdistinct.co.uk/wp-content/uploads/2024/01/ssis-logo-jpg.webp"
-        subtitle: "Another application"
-        tag: "app"
-        # Optional tagstyle
-        tagstyle: "is-success"
-        url: "https://formation.ssis.keyrus.ovh/"
         target: "_blank" # optional html tag target attribute
