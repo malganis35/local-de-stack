@@ -146,10 +146,19 @@ services:
         target: "_blank" # optional html a tag target attribute
         # class: "green" # optional custom CSS class for card, useful with custom stylesheet
         # background: red # optional color for card to set color directly without custom stylesheet
+      - name: "VSCode Code Server"
+        logo: "https://code.visualstudio.com/assets/images/code-stable.png"
+        subtitle: "Local Web IDE" # optional, if no subtitle is defined, PiHole statistics will be shown
+        tag: "IDE"
+        url: "http://localhost:8080/"
+        type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
+        target: "_blank" # optional html a tag target attribute
+        # class: "green" # optional custom CSS class for card, useful with custom stylesheet
+        # background: red # optional color for card to set color directly without custom stylesheet
       - name: "RStudio"
         logo: "https://forum.posit.co/uploads/default/44b540951af86190ea817a3333ba114e335aed35"
         subtitle: "Local Web IDE" # optional, if no subtitle is defined, PiHole statistics will be shown
-        tag: "DS Plateform"
+        tag: "IDE"
         url: "http://localhost:8080/"
         type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
         target: "_blank" # optional html a tag target attribute
