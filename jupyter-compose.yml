@@ -1,0 +1,16 @@
+version: "3.8"
+
+# All available services
+services:
+
+  # Computation
+  jupyter:
+    container_name: "jupyter_notebook"
+    image: "jupyter/datascience-notebook"
+    restart: "always"
+    env_file:
+      - ./.env
+    volumes:
+      - ./data:/home/jovyan/work 
+    ports:
+      - 8888:8888

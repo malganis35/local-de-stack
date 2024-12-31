@@ -93,7 +93,7 @@ message:
   style: "is-warning"
   title: "Welcome!"
   icon: "fa fa-exclamation-triangle"
-  content: "Welcome to the Keyrus Portal of Data Science Services. This page is the Homepage of our DS Open Source Stack"
+  content: "Welcome to the Keyrus Portal of Local Data Science & Data Engineering Stack. This project is intended to create a flexible data science stack ready to use locally with open source technologies"
 
 # Optional navbar
 # links: [] # Allows for navbar (dark mode, layout, and search) without any links
@@ -137,9 +137,18 @@ services:
         target: "_blank" # optional html a tag target attribute
         # class: "green" # optional custom CSS class for card, useful with custom stylesheet
         # background: red # optional color for card to set color directly without custom stylesheet
-      - name: "JupyterLab"
+      - name: "JupyterHub"
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/1767px-Jupyter_logo.svg.png"
         subtitle: "Explore data with Jupyter Notebook" # optional, if no subtitle is defined, PiHole statistics will be shown
+        tag: "DS Plateform"
+        url: "http://localhost:8888/"
+        type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
+        target: "_blank" # optional html a tag target attribute
+        # class: "green" # optional custom CSS class for card, useful with custom stylesheet
+        # background: red # optional color for card to set color directly without custom stylesheet
+      - name: "RStudio"
+        logo: "https://forum.posit.co/uploads/default/44b540951af86190ea817a3333ba114e335aed35"
+        subtitle: "Local Web IDE" # optional, if no subtitle is defined, PiHole statistics will be shown
         tag: "DS Plateform"
         url: "http://localhost:8080/"
         type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
@@ -223,7 +232,7 @@ services:
     # logo: "path/to/logo"
     items:
       - name: "Ollama"
-        logo: "https://imageio.forbes.com/blogs-images/bernardmarr/files/2018/11/AdobeStock_205110625-Converted-1200x598.png?format=png&height=600&width=1200&fit=bounds"
+        logo: "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/light/ollama.png"
         # Alternatively a fa icon can be provided:
         # icon: "fab fa-jenkins"
         subtitle: "Generate artificial data with AI"
@@ -232,7 +241,7 @@ services:
         url: "http://fnmf.syntheticdata.keyrus.ovh/"
         target: "_blank" # optional html tag target attribute
       - name: "AnythingLLM"
-        logo: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Logo_Rubix.jpg"
+        logo: "https://pbs.twimg.com/profile_images/1689841935320797184/yMN81vNK_400x400.jpg"
         subtitle: "Another application"
         tag: "app"
         # Optional tagstyle
