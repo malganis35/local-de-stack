@@ -208,30 +208,14 @@ services:
     # A path to an image can also be provided. Note that icon take precedence if both icon and logo are set.
     # logo: "path/to/logo"
     items:
-      - name: "Synthetic Data"
-        logo: "https://imageio.forbes.com/blogs-images/bernardmarr/files/2018/11/AdobeStock_205110625-Converted-1200x598.png?format=png&height=600&width=1200&fit=bounds"
+      - name: "LabelStudio"
+        logo: "https://cdn.prod.website-files.com/65264f6bf54e751c3a776db1/66d867d15dd7dff0bd9fbe50_label-studio.png"
         # Alternatively a fa icon can be provided:
         # icon: "fab fa-jenkins"
-        subtitle: "Generate artificial data with AI"
+        subtitle: "Data labeling tool (audio, text, images, videos & time series)"
         tag: "app"
         keywords: "self hosted reddit" # optional keyword used for searching purpose
-        url: "www.google.fr"
-        target: "_blank" # optional html tag target attribute
-      - name: "Fuzzy Matching"
-        logo: "https://prateekvjoshi.files.wordpress.com/2014/01/1-main.jpg"
-        subtitle: "Compute similarities between strings"
-        tag: "app"
-        # Optional tagstyle
-        tagstyle: "is-success"
-        url: "www.google.fr"
-        target: "_blank" # optional html tag target attribute
-      - name: "Chat with your webpages"
-        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpfx4lYWgyq8kmzR7HU8JI1kW-H8I62UAU9dQg8sXH-Q&s"
-        subtitle: "Specialize a Gen AI LLM on a webpage"
-        tag: "app"
-        # Optional tagstyle
-        tagstyle: "is-success"
-        url: "www.google.fr"
+        url: "http://localhost:8508/"
         target: "_blank" # optional html tag target attribute
   - name: "Future Assets"
     icon: "fas fa-book"
