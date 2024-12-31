@@ -1,3 +1,4 @@
+# bug fix from: https://github.com/HumanSignal/label-studio/issues/3766
 
 services:
     label_studio:
