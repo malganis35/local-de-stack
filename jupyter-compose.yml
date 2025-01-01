@@ -1,16 +1,63 @@
-version: "3.8"
+version: '3'
 
-# All available services
 services:
+  jupyterhub:
+    image: rancavil/jupyterhub-docker
+    container_name: jupyterhub
+    restart: always
+    ports:
+      - "8889:8000"
+    volumes:
+      - ./data:/app/analysis/data  # Montre un répertoire local pour les données
+    environment:
+      - JUPYTERHUB_ADMIN=admin
+      - JUPYTERHUB_PASSWORD=change.it!
 
-  # Computation
   jupyter:
     container_name: "jupyter_notebook"
     image: "jupyter/datascience-notebook"
     restart: "always"
     env_file:
       - ./.env
+    user: "${UID}:${GID}"     # Spécification explicite de l'utilisateur et du groupe
     volumes:
-      - ./data:/home/jovyan/work 
+      # - ${HOME}:/home/${USER}
+      # - /home/$USER:/home/$USER  # Utilise le répertoire home de l'utilisateur en cours
+      - /home/$USER/data/jupyter:/app/analysis/data # /home/jovyan/work 
     ports:
       - 8888:8888
+
+# version: '3'
+
+# # All available services
+# services:
+#   # Computation
+#   jupyter:
+#     container_name: "jupyter_notebook"
+#     image: rancavil/jupyterhub-docker # "jupyter/datascience-notebook"
+#     restart: "always"
+#     env_file:
+#       - ./.env
+#     user: "${UID}:${GID}"     # Spécification explicite de l'utilisateur et du groupe
+#     volumes:
+# # - ${HOME}:/home/${USER}
+# # - /home/$USER:/home/$USER  # Utilise le répertoire home de l'utilisateur en cours
+#       - /home/$USER/data/jupyter:/home/jovyan/work 
+#     ports:
+#       - 8888:8888
+#       - 8889:8000
+# command: jupyterhub
+
+# services:
+#   jupyterhub:
+#     image: jupyter/datascience-notebook
+#     container_name: jupyterhub
+#     environment:
+#       JUPYTERHUB_CRYPT_KEY: $(JUPYTER_TOKEN)  # Clé de chiffrement
+#     ports:
+#       - "8888:8000"
+#     volumes:
+#       - /home/$USER:/home/$USER  # Utilise le répertoire home de l'utilisateur en cours
+#       - ./jupyterhub_config:/srv/jupyterhub  # Configuration persistante de JupyterHub
+#     command: jupyterhub
+#     restart: unless-stopped
