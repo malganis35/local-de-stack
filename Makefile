@@ -18,7 +18,6 @@ ccbold=$(shell tput bold)
 ccgreen=$(shell tput setaf 2)
 ccred=$(shell tput setaf 1)
 ccso=$(shell tput smso)
-
 #################################################################################
 # ENV CHECK                                                                     #
 #################################################################################
@@ -116,13 +115,27 @@ generate-template:
 # PROJECT RULES                                                                 #
 #################################################################################
 
+## Start from homepage
+run:
+	cmd.exe /C start http://localhost:8881
+
+## Populate Minio S3 Bucket with a file
+init-minio:
+	@echo "$(ccso)--> Populate Minio S3 Bucket with a file$(ccend)"
+	python minio_starter.py
+
+## Populate DuckDB Database with some data
+init-duckdb:
+	@echo "$(ccso)--> Populate DuckDB Database with some data$(ccend)"
+	python duckdb_starter.py
+
 ## Start all the docker containers
-start-all: start-mongo start-minio start-postgres start-dbeaver
+start-all: start-homer start-mongo start-minio start-postgres start-dbeaver start-airflow start-mlflow start-jupyter start-labelstudio
 	@echo "$(ccso)--> Start all containers$(ccend)"
 	docker ps
 
 ## Stop all the docker containers
-stop-all: stop-mongo stop-minio stop-postgres stop-dbeaver
+stop-all: stop-homer stop-mongo stop-minio stop-postgres stop-dbeaver stop-airflow stop-mlflow stop-jupyter stop-labelstudio
 	@echo "$(ccso)--> Stop all containers$(ccend)"
 	docker ps
 
@@ -139,6 +152,21 @@ start-postgres:
 start-dbeaver:
 	docker compose -f cloudbeaver-compose.yaml up -d
 
+start-airflow:
+	docker compose -f airflow-compose.yaml up -d
+
+start-mlflow:
+	docker compose -f mlflow-compose.yaml up -d
+
+start-homer:
+	docker compose -f homer-compose.yaml up -d
+
+start-jupyter:
+	docker compose -f jupyter-compose.yaml up -d
+
+start-labelstudio:
+	docker compose -f labelstudio-compose.yaml up -d
+
 stop-mongo:
 	docker compose -f mongodb-express-compose.yaml down
 	docker compose -f mongo-express-compose.yaml down
@@ -152,6 +180,20 @@ stop-postgres:
 stop-dbeaver:
 	docker compose -f cloudbeaver-compose.yaml down
 
+stop-airflow:
+	docker compose -f airflow-compose.yaml down
+
+stop-mlflow:
+	docker compose -f mlflow-compose.yaml down
+
+stop-homer:
+	docker compose -f homer-compose.yaml down
+
+stop-jupyter:
+	docker compose -f jupyter-compose.yaml down
+
+stop-labelstudio:
+	docker compose -f labelstudio-compose.yaml down
 
 #################################################################################
 # Self Documenting Commands                                                     #
@@ -159,16 +201,14 @@ stop-dbeaver:
 
 ## Initial setup to follow
 help_setup:
+	@echo ""
 	@echo "$(ccso)--> Initial setup to follow$(ccend)"
-	@echo "1. (optional) install pyenv if not already installed: curl https://pyenv.run | bash"
-	@echo "2. (optional) if python 3.9.0 is not your default env, we recommend to add it to your pyenv. Follow the guide on the knowledge center"
-	@echo "3. (recommanded) test to see what python virtual environment manager is present in your system: make test_environment"
-	@echo "4. create a pyenv environment with pyenv virtualenv system classification_rubix_pim"
-	@echo "5. activate your local environment with pyenv activate classification_rubix_pim"
-	@echo "**Note**: you can install step 4 and 5 using: make create_pyenv_env"
-	@echo "6. install the requirements using: make dev-install"
-	@echo "7. run the app using: make run"
-	@echo "8. (optional) clean your environment using: pyenv virtualenv-delete classification_rubix_pim"
+	@echo "1. Start all services by running: make start-all"
+	@echo "2. (optional) You can start a specific service by using: docker compose -f postgres-compose.yaml up -d"
+	@echo "3. Run the Homepage of our DS Stack with: make run"
+	@echo "4. Stop all services by running: make stop-all"
+	@echo "5. (optional) You can stop a specific service by using: docker compose -f postgres-compose.yaml down"
+	@echo ""
 
 .DEFAULT_GOAL := help
 
@@ -189,6 +229,7 @@ help_setup:
 # semicolon; see <http://stackoverflow.com/a/11799865/1968>
 .PHONY: help
 help:
+	@echo ""
 	@echo "$$(tput bold)Available rules:$$(tput sgr0)"
 	@echo
 	@sed -n -e "/^## / { \
@@ -226,3 +267,4 @@ help:
 		printf "\n"; \
 	}' \
 	| more $(shell test $(shell uname) = Darwin && echo '--no-init --raw-control-chars')
+	@echo ""
