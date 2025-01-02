@@ -5,7 +5,7 @@ services:
     volumes:
       - ./homer:/www/assets # Make sure your local config directory exists
     ports:
-      - 8081:8080
+      - 8881:8080
     user: 1000:1000 # default
     environment:
       - INIT_ASSETS=1 # default, requires the config directory to be writable for the container user (see user option)
