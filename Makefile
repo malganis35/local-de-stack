@@ -130,12 +130,12 @@ init-duckdb:
 	python duckdb_starter.py
 
 ## Start all the docker containers
-start-all: start-homer start-mongo start-minio start-postgres start-dbeaver start-airflow start-mlflow start-jupyter start-labelstudio
+start-all: start-homer start-mongo start-minio start-postgres start-dbeaver start-airflow start-mlflow start-jupyter start-rstudio start-vscode start-labelstudio
 	@echo "$(ccso)--> Start all containers$(ccend)"
 	docker ps
 
 ## Stop all the docker containers
-stop-all: stop-homer stop-mongo stop-minio stop-postgres stop-dbeaver stop-airflow stop-mlflow stop-jupyter stop-labelstudio
+stop-all: stop-homer stop-mongo stop-minio stop-postgres stop-dbeaver stop-airflow stop-mlflow stop-jupyter stop-rstudio stop-vscode stop-labelstudio
 	@echo "$(ccso)--> Stop all containers$(ccend)"
 	docker ps
 
@@ -164,6 +164,12 @@ start-homer:
 start-jupyter:
 	docker compose -f jupyter-compose.yaml up -d
 
+start-rstudio:
+	docker compose -f rstudio-compose.yaml up -d
+
+start-vscode:
+	docker compose -f vscode-compose.yaml up -d
+
 start-labelstudio:
 	docker compose -f labelstudio-compose.yaml up -d
 
@@ -191,6 +197,12 @@ stop-homer:
 
 stop-jupyter:
 	docker compose -f jupyter-compose.yaml down
+
+stop-rstudio:
+	docker compose -f rstudio-compose.yaml down
+
+stop-vscode:
+	docker compose -f vscode-compose.yaml down
 
 stop-labelstudio:
 	docker compose -f labelstudio-compose.yaml down
