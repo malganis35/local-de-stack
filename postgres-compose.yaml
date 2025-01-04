@@ -11,3 +11,8 @@ services:
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - ${PG_LOCAL_DIR}:/var/lib/postgresql/data
+    networks:
+      - $(NETWORK_NAME)
+
+networks:
+  $(NETWORK_NAME):

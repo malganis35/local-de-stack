@@ -6,3 +6,8 @@ services:
       - "8978:8978"
     volumes:
       - ${CLOUDBEAVER_DIR}:/opt/cloudbeaver/workspace
+    networks:
+      - $(NETWORK_NAME)
+
+networks:
+  $(NETWORK_NAME):
