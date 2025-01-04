@@ -1,0 +1,11 @@
+version: '3'
+services:
+  rstudio:
+    image: rocker/rstudio
+    ports:
+      - "8787:8787"
+    environment:
+      - PASSWORD=yourpassword
+    volumes:
+      - /home:/home/rstudio/home
+    restart: unless-stopped
