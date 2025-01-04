@@ -159,7 +159,7 @@ services:
         logo: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Grafana_logo.png"
         subtitle: "Analytics & Monitoring solution for Database" # optional, if no subtitle is defined, PiHole statistics will be shown
         tag: "dataviz"
-        url: "http://localhost:8080/"
+        url: "http://localhost:3000/"
         type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
         target: "_blank" # optional html a tag target attribute
         # class: "green" # optional custom CSS class for card, useful with custom stylesheet

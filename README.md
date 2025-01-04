@@ -14,6 +14,8 @@ This repo is intended to create a ready production data and machine learning sta
 - **JupyterHub**: Exploration in jupyter notebook
 - **VSCode Server**: Online IDE
 - **RStudio Server**: Online IDE
+- **Grafana**: Monitoring and visualization of data and model drift
+- **Superset**: Data Visualization & BI stack
 - **LabelStudio**: Asset to labels data
 
 ### How to install Docker?
@@ -60,4 +62,21 @@ docker compose -f postgres-compose.yaml up -d
 Stop
 ```
 docker compose -f postgres-compose.yaml down
+```
+
+### Important notes
+
+To connect **Grafana** and **Cloudbeaver** to PostgreSQL server, use this information:
+
+```
+host=postgres
+username= *see .env file*
+password= *see .env file*
+database=postgres
+```
+
+If you use DBeaver on your Windows with all the stack setuped on your WSL, use:
+
+```
+host=localhost
 ```
