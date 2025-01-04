@@ -1,0 +1,22 @@
+# source: https://dynops.fr/installer-grafana-avec-docker-compose/
+
+version: "3.3"
+services:
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - grafana-conf:/etc/grafana
+    networks:
+      - $(NETWORK_NAME)
+
+networks:
+  $(NETWORK_NAME):
+
+volumes:
+  grafana-data:
+  grafana-conf:
