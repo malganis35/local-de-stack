@@ -2,10 +2,11 @@ version: '3'
 services:
   rstudio:
     image: rocker/rstudio
+    container_name: rstudio
     ports:
       - "8787:8787"
     environment:
-      - PASSWORD=$(RSTUDIO_PASSWORD)
+      - PASSWORD=${RSTUDIO_PASSWORD}
     volumes:
       - /home:/home/rstudio/home
     restart: unless-stopped
